@@ -2,3 +2,7 @@
 __pycache__/
 *.pyc
 .env
+mlflow_runs/
+mlruns/
+data/
+*.json
