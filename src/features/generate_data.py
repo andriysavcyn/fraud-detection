@@ -10,6 +10,7 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
+
 def generate_transactions(
     n_samples: int = 10000, random_state: int = 42
 ) -> pd.DataFrame:
@@ -47,7 +48,7 @@ def generate_transactions(
             }
         )
 
-        logger.debug(f"Generation of {n_legit} fraud transactions...")
+        logger.debug(f"Generation of {n_fraud} fraud transactions...")
         fraud = pd.DataFrame(
             {
                 "amount": rng.lognormal(mean=5.5, sigma=1.2, size=n_fraud),
@@ -83,6 +84,7 @@ def generate_transactions(
     except Exception as e:
         logger.error(f"Unexpected error during data generation: {e}", exc_info=True)
         raise
+
 
 if __name__ == "__main__":
     output_path = Path("data/transactions.csv")
